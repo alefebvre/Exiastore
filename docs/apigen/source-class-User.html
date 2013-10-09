@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File model_user.php | My</title>
+
+	<script type="text/javascript" src="resources/combined.js?3090504956"></script>
+	<script type="text/javascript" src="elementlist.js?3793802978"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+		</div>
+
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-CAD.html">CAD</a></li>
+				<li class="active"><a href="class-User.html">User</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-ajouterArticle.html">ajouterArticle</a></li>
+				<li><a href="function-compterArticles.html">compterArticles</a></li>
+				<li><a href="function-creationPanier.html">creationPanier</a></li>
+				<li><a href="function-modifierQTeArticle.html">modifierQTeArticle</a></li>
+				<li><a href="function-MontantGlobal.html">MontantGlobal</a></li>
+				<li><a href="function-supprimePanier.html">supprimePanier</a></li>
+				<li><a href="function-supprimerArticle.html">supprimerArticle</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="class-User.html" title="Summary of User"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="my-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span> <span class="php-comment">// modele contenant les requêtes pour l'authentification, l'inscription et la modification du compte de l'utilisateur</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a>
+</span><span id="3" class="l"><a class="l" href="#3"> 3: </a><span class="php-keyword1">class</span> <a id="User" href="#User">User</a>
+</span><span id="4" class="l"><a class="l" href="#4"> 4: </a>{
+</span><span id="5" class="l"><a class="l" href="#5"> 5: </a>    <span class="php-comment">//déclaration de toutes les variables nécéssaires</span>
+</span><span id="6" class="l"><a class="l" href="#6"> 6: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$CAD" href="#$CAD">$CAD</a></span>;
+</span><span id="7" class="l"><a class="l" href="#7"> 7: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$login" href="#$login">$login</a></span>;
+</span><span id="8" class="l"><a class="l" href="#8"> 8: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$mdp" href="#$mdp">$mdp</a></span>;
+</span><span id="9" class="l"><a class="l" href="#9"> 9: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$nom" href="#$nom">$nom</a></span>;
+</span><span id="10" class="l"><a class="l" href="#10">10: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$prenom" href="#$prenom">$prenom</a></span>;
+</span><span id="11" class="l"><a class="l" href="#11">11: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$dateNaissance" href="#$dateNaissance">$dateNaissance</a></span>;
+</span><span id="12" class="l"><a class="l" href="#12">12: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$telephone" href="#$telephone">$telephone</a></span>;
+</span><span id="13" class="l"><a class="l" href="#13">13: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$adresse" href="#$adresse">$adresse</a></span>;
+</span><span id="14" class="l"><a class="l" href="#14">14: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$cp" href="#$cp">$cp</a></span>;
+</span><span id="15" class="l"><a class="l" href="#15">15: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$ville" href="#$ville">$ville</a></span>;
+</span><span id="16" class="l"><a class="l" href="#16">16: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$pays" href="#$pays">$pays</a></span>;
+</span><span id="17" class="l"><a class="l" href="#17">17: </a>    <span class="php-comment">/*private $article;
+</span></span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-comment">    private $dateEdition;
+</span></span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-comment">    private $auteur;
+</span></span><span id="20" class="l"><a class="l" href="#20">20: </a><span class="php-comment">    private $information;
+</span></span><span id="21" class="l"><a class="l" href="#21">21: </a><span class="php-comment">    private $etat;*/</span>
+</span><span id="22" class="l"><a class="l" href="#22">22: </a>
+</span><span id="23" class="l"><a class="l" href="#23">23: </a>
+</span><span id="24" class="l"><a class="l" href="#24">24: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_authentification" href="#_authentification">authentification</a>(<span class="php-var">$login</span>, <span class="php-var">$mdp</span>)
+</span><span id="25" class="l"><a class="l" href="#25">25: </a>    {
+</span><span id="26" class="l"><a class="l" href="#26">26: </a>        <span class="php-comment">// ouverture connexion</span>
+</span><span id="27" class="l"><a class="l" href="#27">27: </a>        <span class="php-var">$this</span>-&gt;CAD = <span class="php-keyword1">new</span> CAD();
+</span><span id="28" class="l"><a class="l" href="#28">28: </a>        <span class="php-var">$bdd</span> = <span class="php-var">$this</span>-&gt;CAD-&gt;openCNX();
+</span><span id="29" class="l"><a class="l" href="#29">29: </a>        <span class="php-comment">// requete verifiant que l'utilisateur existe dans la base et que ses login et mdp correspondent bien</span>
+</span><span id="30" class="l"><a class="l" href="#30">30: </a>        <span class="php-var">$reponse</span> = <span class="php-var">$bdd</span>-&gt;query(<span class="php-quote">&quot;SELECT Login_Utilisateur FROM utilisateur WHERE Login_Utilisateur ='&quot;</span>.<span class="php-var">$login</span>.<span class="php-quote">&quot;' AND Mdp_Utilisateur = '&quot;</span>.<span class="php-var">$mdp</span>.<span class="php-quote">&quot;'&quot;</span>);
+</span><span id="31" class="l"><a class="l" href="#31">31: </a>        <span class="php-var">$row</span> = <span class="php-var">$reponse</span>-&gt;fetch(PDO::FETCH_ASSOC);
+</span><span id="32" class="l"><a class="l" href="#32">32: </a>        <span class="php-var">$reponse</span> = <span class="php-keyword1">NULL</span>;
+</span><span id="33" class="l"><a class="l" href="#33">33: </a>        <span class="php-comment">// sécurisation </span>
+</span><span id="34" class="l"><a class="l" href="#34">34: </a>        <span class="php-var">$reponse</span> = <span class="php-keyword2">htmlentities</span>(<span class="php-var">$row</span>[<span class="php-quote">'Login_Utilisateur'</span>]);
+</span><span id="35" class="l"><a class="l" href="#35">35: </a>        <span class="php-comment">// fermeture connexion</span>
+</span><span id="36" class="l"><a class="l" href="#36">36: </a>        <span class="php-var">$this</span>-&gt;CAD-&gt;closeCNX();
+</span><span id="37" class="l"><a class="l" href="#37">37: </a>        <span class="php-keyword1">return</span> <span class="php-var">$reponse</span>;
+</span><span id="38" class="l"><a class="l" href="#38">38: </a>    }
+</span><span id="39" class="l"><a class="l" href="#39">39: </a>
+</span><span id="40" class="l"><a class="l" href="#40">40: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_inscription" href="#_inscription">inscription</a>(<span class="php-var">$login</span>, <span class="php-var">$mdp</span>, <span class="php-var">$nom</span>, <span class="php-var">$prenom</span>, <span class="php-var">$telephone</span>, <span class="php-var">$adresse</span>, <span class="php-var">$cp</span>, <span class="php-var">$ville</span>, <span class="php-var">$pays</span>)
+</span><span id="41" class="l"><a class="l" href="#41">41: </a>    {   
+</span><span id="42" class="l"><a class="l" href="#42">42: </a>        <span class="php-comment">// ouverture connexion</span>
+</span><span id="43" class="l"><a class="l" href="#43">43: </a>        <span class="php-var">$this</span>-&gt;CAD = <span class="php-keyword1">new</span> CAD();
+</span><span id="44" class="l"><a class="l" href="#44">44: </a>        <span class="php-var">$bdd</span> = <span class="php-var">$this</span>-&gt;CAD-&gt;openCNX();
+</span><span id="45" class="l"><a class="l" href="#45">45: </a>        <span class="php-comment">// requete permettant à l'utilisateur d'entrer ses infos dans la base de données</span>
+</span><span id="46" class="l"><a class="l" href="#46">46: </a>        <span class="php-var">$reponse</span> = <span class="php-var">$bdd</span>-&gt;<span class="php-keyword2">exec</span>(<span class="php-quote">&quot;INSERT INTO utilisateur(Nom_Utilisateur, Prenom_Utilisateur, Adresse_Utilisateur, Ville_Utilisateur, Cp_Utilisateur, Pays_Utilisateur, Tel_Utilisateur, Login_Utilisateur, Mdp_Utilisateur ) VALUES ('&quot;</span>.<span class="php-var">$nom</span>.<span class="php-quote">&quot;', '&quot;</span>.<span class="php-var">$prenom</span>.<span class="php-quote">&quot;', '&quot;</span>.<span class="php-var">$adresse</span>.<span class="php-quote">&quot;', '&quot;</span>.<span class="php-var">$ville</span>.<span class="php-quote">&quot;', '&quot;</span>.<span class="php-var">$cp</span>.<span class="php-quote">&quot;', '&quot;</span>.<span class="php-var">$pays</span>.<span class="php-quote">&quot;', '&quot;</span>.<span class="php-var">$telephone</span>.<span class="php-quote">&quot;', '&quot;</span>.<span class="php-var">$login</span>.<span class="php-quote">&quot;','&quot;</span>.<span class="php-var">$mdp</span>.<span class="php-quote">&quot;')&quot;</span>); 
+</span><span id="47" class="l"><a class="l" href="#47">47: </a>        <span class="php-comment">// fermeture connexion</span>
+</span><span id="48" class="l"><a class="l" href="#48">48: </a>        <span class="php-var">$this</span>-&gt;CAD-&gt;closeCNX();
+</span><span id="49" class="l"><a class="l" href="#49">49: </a>        <span class="php-keyword1">return</span> <span class="php-var">$reponse</span>;
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>    }
+</span><span id="51" class="l"><a class="l" href="#51">51: </a>
+</span><span id="52" class="l"><a class="l" href="#52">52: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_compte" href="#_compte">compte</a>(<span class="php-var">$login</span>, <span class="php-var">$mdp</span>, <span class="php-var">$nom</span>, <span class="php-var">$prenom</span>, <span class="php-var">$telephone</span>, <span class="php-var">$adresse</span>, <span class="php-var">$cp</span>, <span class="php-var">$ville</span>, <span class="php-var">$pays</span>)
+</span><span id="53" class="l"><a class="l" href="#53">53: </a>    {
+</span><span id="54" class="l"><a class="l" href="#54">54: </a>        <span class="php-comment">// ouverture connexion</span>
+</span><span id="55" class="l"><a class="l" href="#55">55: </a>        <span class="php-var">$this</span>-&gt;CAD = <span class="php-keyword1">new</span> CAD();
+</span><span id="56" class="l"><a class="l" href="#56">56: </a>        <span class="php-var">$bdd</span> = <span class="php-var">$this</span>-&gt;CAD-&gt;openCNX();
+</span><span id="57" class="l"><a class="l" href="#57">57: </a>        <span class="php-comment">// requete permettant à l'utilisateur de modifier les info qu'il a saisies qu moment de son inscription</span>
+</span><span id="58" class="l"><a class="l" href="#58">58: </a>        <span class="php-var">$reponse</span> = <span class="php-var">$bdd</span>-&gt;<span class="php-keyword2">exec</span>(<span class="php-quote">&quot;UPDATE utilisateur SET Nom_Utilisateur = '&quot;</span>.<span class="php-var">$nom</span>.<span class="php-quote">&quot;', Prenom_Utilisateur = '&quot;</span>.<span class="php-var">$prenom</span>.<span class="php-quote">&quot;', Adresse_Utilisateur = '&quot;</span>.<span class="php-var">$adresse</span>.<span class="php-quote">&quot;', Ville_Utilisateur = '&quot;</span>.<span class="php-var">$ville</span>.<span class="php-quote">&quot;', Cp_Utilisateur = '&quot;</span>.<span class="php-var">$cp</span>.<span class="php-quote">&quot;', Pays_Utilisateur = '&quot;</span>.<span class="php-var">$pays</span>.<span class="php-quote">&quot;', Tel_Utilisateur = '&quot;</span>.<span class="php-var">$telephone</span>.<span class="php-quote">&quot;', Login_Utilisateur = '&quot;</span>.<span class="php-var">$login</span>.<span class="php-quote">&quot;', Mdp_Utilisateur  = '&quot;</span>.<span class="php-var">$mdp</span>.<span class="php-quote">&quot;'&quot;</span>); 
+</span><span id="59" class="l"><a class="l" href="#59">59: </a>        <span class="php-comment">// fermeture connexion</span>
+</span><span id="60" class="l"><a class="l" href="#60">60: </a>        <span class="php-var">$this</span>-&gt;CAD-&gt;closeCNX();
+</span><span id="61" class="l"><a class="l" href="#61">61: </a>        <span class="php-keyword1">return</span> <span class="php-var">$reponse</span>;
+</span><span id="62" class="l"><a class="l" href="#62">62: </a>    } 
+</span><span id="63" class="l"><a class="l" href="#63">63: </a>    
+</span><span id="64" class="l"><a class="l" href="#64">64: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_modifierCompte" href="#_modifierCompte">modifierCompte</a>(<span class="php-var">$login</span>, <span class="php-var">$mdp</span>, <span class="php-var">$nom</span>, <span class="php-var">$prenom</span>, <span class="php-var">$telephone</span>, <span class="php-var">$adresse</span>, <span class="php-var">$cp</span>, <span class="php-var">$ville</span>, <span class="php-var">$pays</span>)
+</span><span id="65" class="l"><a class="l" href="#65">65: </a>    {       
+</span><span id="66" class="l"><a class="l" href="#66">66: </a>        <span class="php-comment">// ouverture connexion</span>
+</span><span id="67" class="l"><a class="l" href="#67">67: </a>        <span class="php-var">$this</span>-&gt;CAD = <span class="php-keyword1">new</span> CAD();
+</span><span id="68" class="l"><a class="l" href="#68">68: </a>        <span class="php-var">$bdd</span> = <span class="php-var">$this</span>-&gt;CAD-&gt;openCNX();
+</span><span id="69" class="l"><a class="l" href="#69">69: </a>        <span class="php-comment">// requete permettant à l'utilisateur de modifier les info qu'il a saisies au moment de son inscription</span>
+</span><span id="70" class="l"><a class="l" href="#70">70: </a>        <span class="php-var">$reponse</span> = <span class="php-var">$bdd</span>-&gt;<span class="php-keyword2">exec</span>(<span class="php-quote">&quot;UPDATE utilisateur SET Nom_Utilisateur = '&quot;</span>.<span class="php-var">$nom</span>.<span class="php-quote">&quot;', Prenom_Utilisateur = '&quot;</span>.<span class="php-var">$prenom</span>.<span class="php-quote">&quot;', Adresse_Utilisateur = '&quot;</span>.<span class="php-var">$adresse</span>.<span class="php-quote">&quot;', Ville_Utilisateur = '&quot;</span>.<span class="php-var">$ville</span>.<span class="php-quote">&quot;', Cp_Utilisateur = '&quot;</span>.<span class="php-var">$cp</span>.<span class="php-quote">&quot;', Pays_Utilisateur = '&quot;</span>.<span class="php-var">$pays</span>.<span class="php-quote">&quot;', Tel_Utilisateur = '&quot;</span>.<span class="php-var">$telephone</span>.<span class="php-quote">&quot;', Login_Utilisateur = '&quot;</span>.<span class="php-var">$login</span>.<span class="php-quote">&quot;', Mdp_Utilisateur  = '&quot;</span>.<span class="php-var">$mdp</span>.<span class="php-quote">&quot;' WHERE Nom_Utilisateur ='&quot;</span>.<span class="php-var">$login</span>.<span class="php-quote">&quot;' &quot;</span>); 
+</span><span id="71" class="l"><a class="l" href="#71">71: </a>        <span class="php-comment">// fermeture connexion</span>
+</span><span id="72" class="l"><a class="l" href="#72">72: </a>        <span class="php-var">$this</span>-&gt;CAD-&gt;closeCNX();
+</span><span id="73" class="l"><a class="l" href="#73">73: </a>        <span class="php-keyword1">return</span> <span class="php-var">$reponse</span>;
+</span><span id="74" class="l"><a class="l" href="#74">74: </a>    }
+</span><span id="75" class="l"><a class="l" href="#75">75: </a>
+</span><span id="76" class="l"><a class="l" href="#76">76: </a>}
+</span><span id="77" class="l"><a class="l" href="#77">77: </a></span><span class="xlang">?&gt;</span></code></pre>
+
+	<div id="footer">
+		My API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

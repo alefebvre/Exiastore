@@ -1,0 +1,179 @@
+/*arrière-plan*/
+body, html    
+{
+	background: linear-gradient(to bottom,  white,#3CF) ;
+	margin:0;
+	padding:0;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	text-align:center;
+	color:#FFF;
+	font-size:12px;
+}    
+
+/*bannière du haut, indiquant "Exia Store - Vente de CD et DVD*/
+#ban-haut    
+{
+	margin: 0 auto 0;
+	width:817px
+}
+
+/*englobe la navigation à gauche, le header et le corps principal de la page*/
+#contenu	 
+{
+	margin: 0 auto 0;
+	width:790px;
+	background-color:white;
+	padding:0 12px 0 12px;
+	border-radius:7px;
+}
+
+/*header contenant image + Bienvenue*/
+header       
+{
+	height:130px;
+	background: url(images/header.png) ; 
+} 
+
+
+
+/*Navigation, située à gauche */
+#left         
+{
+	float:left;
+	margin:0 0 0 1px;
+	width:180px;
+} 
+
+.titre_menu	  
+{
+	color:#fff;
+	background:url(images/titre_menu.jpg);
+	width:170px;
+	height:20px;
+	padding:5px 5px 5px 5px;
+	margin:0 auto 0 auto;
+	font-weight:bold;
+	font-size:14px; 
+	border-radius:5px;
+	}	
+	
+ul            
+{
+	margin:0 auto 0 auto;padding:0;
+	width:180px;text-decoration: none;
+	list-style: none;
+	text-align:center;
+}
+
+ul li a       
+{
+	background-color:#D7D7D7;
+	 border-radius:7px ;
+	 text-align:left;
+	 width:150px;
+	 height:30px;
+	 display: block;
+	 line-height:30px;
+	 color: #414141;
+	 font-size:11px;
+	 text-decoration: none;
+	 padding:0 10px 0 20px;
+	 margin:0 0 1px 0;
+	 font-weight:bold;
+} 
+
+ul li a:hover 
+{
+	background:url(images/bouton_hover.jpg);
+	color:#0fb0dc;
+}  
+ 
+ul li p 
+{ 
+	color:#414141;
+	font-size:11px ;
+}
+
+/*contenu principal du site, en dessous du header*/
+#right        
+{
+	margin:0 0 0 192px;
+	width:600px;
+	color:#811212;
+	text-align:left;
+	height:785px;
+} 
+
+.news          
+{
+	height:23px;
+	width:586px;
+	background: url(images/news.jpg) top;
+	padding:5px 5px 5px 5px;
+	margin:0;
+	color:#fff;
+	font-size:14px;
+	font-weight:bold;
+	border-top-left-radius :7px;
+	border-top-right-radius :7px;
+	} 
+	
+.fond_contenu  
+{
+	color:#383838;
+	background:#D7D7D7;
+	width:586px;
+	padding:0 5px 5px 5px;
+	margin:0;
+	height:530px;
+	border-bottom-left-radius :7px;
+	border-bottom-right-radius :7px;
+}
+		   
+/*Autres : liens, passage de la souris, paragraphes ...*/ 
+ 	  	    
+a         
+{
+	color:#0A6BD8;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+a:hover   
+{
+	color:#363636;
+}    
+
+p		  
+{
+	text-align:center
+} 
+
+img, p, h1, h2, table, td, tr
+{
+border:0;margin:0;padding:0
+} 
+
+/*Pied de page*/
+
+.footer         
+{
+	padding:0;
+	margin :auto 0 auto 0;
+	color:#fff;
+	text-align:center;
+	font-weight:bold;
+}   
+
+/*A SUPPR ???*/
+#pied         
+{
+	width:825px;
+	height:24px;
+}	
+
+
+
+
+
+
